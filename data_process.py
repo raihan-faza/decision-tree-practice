@@ -1,11 +1,14 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv("drug200.csv")
+
+def load_dataset():
+    df = pd.read_csv("drug200.csv")
+    return df
 
 
 # checking info from dataset
-def check_dataset_info():
+def check_dataset_info(df: pd.DataFrame):
     print(df.info())
     print(df.describe())
     print(df.shape)
@@ -23,6 +26,3 @@ def split_dataset(
         X, y, test_size=0.2, random_state=1
     )
     return X_train, X_test, y_train, y_test
-
-
-check_dataset_info()
